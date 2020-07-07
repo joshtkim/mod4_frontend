@@ -19,7 +19,7 @@ class Expense extends React.Component {
 
         fetch("http://localhost:3000/expenses", {
             method: "POST",
-            hedaers: {
+            headers: {
                 'content-type': 'application/json'
             },
             body: JSON.stringify(this.state)

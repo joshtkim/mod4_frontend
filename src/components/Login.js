@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Home extends React.Component {
+class Login extends React.Component {
 
   state={
     username: '',
@@ -18,15 +18,13 @@ handleSubmit = e => {
 
     fetch("http://localhost:3000/users", {
         method: "POST",
-        hedaers: {
+        headers: {
             'content-type': 'application/json'
         },
         body: JSON.stringify(this.state)
     })
-    .then(r => r.json())
-    .then(test => {
-      console.log(test)
-    })
+
+    window.location='http://localhost:3001/profile'
 }
 
 
@@ -34,8 +32,8 @@ handleSubmit = e => {
     console.log(this.state)
     return (
       <div>
-        <h1>Home Page</h1>
-        <form>
+        <h1>Login Page</h1>
+        <form onSubmit={this.handleSubmit}>
             <input placeholder="Username" name="username" type="text" value={this.state.username} onChange={this.handleChange}/>
             <input placeholder="Password" name="password" type="password" value={this.state.password} onChange={this.handleChange}/>
             <input type="submit"/>
@@ -48,4 +46,4 @@ handleSubmit = e => {
 
 };
 
-export default Home;
+export default Login;
