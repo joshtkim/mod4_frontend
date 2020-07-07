@@ -23,13 +23,15 @@ class Expense extends React.Component {
                 'content-type': 'application/json'
             },
             body: JSON.stringify(this.state)
-        })
-    }
+            })
+            .then(response => (response.json())
+            .then(data => console.log(data))
+            )
+        }
 
 
     render() {
         let {expense, amount, date} = this.state
-
         return (
             <div>
                 <h4>Expense</h4>
