@@ -1,16 +1,38 @@
 import React from 'react';
+import Expense from './Expense';
+import ExpenseForm from './ExpenseForm'
 
 class Budget extends React.Component {
 
   state={
-    
+    expense: []
   }
 
+
+    componentDidMount (){
+      fetch("http://localhost:3000/expenses")
+          .then(response => response.json())
+          .then(expenseArray => {
+            this.setState({
+              expense: expenseArray
+            })
+          })
+        }
+
+
   render() {
+    console.log(this.state)
     return (
       <div>
-          <h4>Budget</h4>
-            <select>
+            <h4>{this.props.budget.category}</h4>
+             <h4>{this.props.budget.amount}</h4>
+             <ExpenseForm ></ExpenseForm>
+             <Expense budgetKey={this.props.budget.id} expense={this.state.expense}/>
+      </div>
+    );
+  }
+
+   /* <select>
             <option value="Transportation">
               Transportation
             </option>
@@ -32,14 +54,7 @@ class Budget extends React.Component {
             <option value="Etc">
               Etc
             </option>
-          </select>
-          <form>
-            <input placeholder="Budget Total" name="budget" type="number"/>
-          </form>
-      </div>
-    );
-  }
-
+          </select>  */
 
 
 };

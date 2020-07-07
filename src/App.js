@@ -8,21 +8,36 @@ import Profile from './components/Profile'
 
 class App extends React.Component {
 
+  state ={
+    budget: []
+  }
+
 
   renderLogin = (routerProps) => {
     return <Login />
   }
 
   renderBudgetContainer = (routerProps) => {
-    return <BudgetContainer />
+    return <BudgetContainer budgetArray={this.state.budget}/>
   }
 
   renderProfile = (routerProps) => {
     return <Profile />
   }
 
+  componentDidMount (){
+    fetch("http://localhost:3000/budgets")
+        .then(response => response.json())
+        .then(budgetArray => {
+          this.setState({
+            budget: budgetArray
+          })
+        })
+      }
+
 
   render() {
+    console.log(this.state.budget)
     return (
       <Router>
         <div className="app">

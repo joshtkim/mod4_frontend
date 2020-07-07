@@ -1,13 +1,16 @@
 import React from 'react';
 import Budget from './Budget'
-import Expense from './Expense'
+import BudgetForm from './BudgetForm'
 
-const BudgetContainer = () => {
+
+const BudgetContainer = (props) => {
   return (
     <div>
         <h1>Budget Container</h1>
-        <Budget />
-        <Expense />
+        <BudgetForm />
+        {props.budgetArray.map(budget =>{
+          return <Budget key={budget.id} budget={budget}/>
+        })}
     </div>
   );
 };

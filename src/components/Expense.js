@@ -3,9 +3,16 @@ import React from 'react';
 class Expense extends React.Component {
 
     state={
-        expense:'',
+        description:'',
         amount: '',
-        date:''
+        date:'',
+        budget_id: ''
+    }
+
+    componentDidMount = ()=>{
+      this.setState({
+        budget_id: this.props.budgetKey
+      })
     }
 
     handleChange = e => {
@@ -17,32 +24,31 @@ class Expense extends React.Component {
     handleSubmit = e => {
         e.preventDefault()
 
-        fetch("http://localhost:3000/expenses", {
+        fetch(`http://localhost:3000/expenses`, {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
             },
             body: JSON.stringify(this.state)
             })
-            .then(response => (response.json())
-            .then(data => console.log(data))
-            )
         }
 
 
     render() {
-        let {expense, amount, date} = this.state
+      console.log(this.state)
+        let {description, amount, date} = this.state
         return (
-            <div>
-                <h4>Expense</h4>
-                    <form onSubmit={this.handleSubmit}>
-                        <input onChange={this.handleChange} placeholder="Expense" type="text" name="expense" value={expense}/>
-                        $ <input onChange={this.handleChange} placeholder="Amount Spent" type="number" name="amount" value={amount}/>
-                        <input onChange={this.handleChange} type="date" name="date" value={date}/>
-                        <input type="submit"/>
-                    </form>
+          <div>
+              {this.props.expense.map(expenseObj =>{
+                return <div>
+                <h2>{expenseObj.description}</h2>
+                <h2>{expenseObj.amount}</h2>
+                <h2>{expenseObj.date}</h2>
+                </div>
+              })}
+           
             </div>
-          );
+          )
     }
 
 
