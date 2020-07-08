@@ -6,8 +6,9 @@ class Expense extends React.Component {
     fetch(`http://localhost:3000/expenses/${e.target.id}`, {
       method:"DELETE",
     })
+    console.log(e.target.parentNode)
     e.target.parentNode.remove()
-    this.props.removeExp(e.target.id)
+    this.props.removeExp(e.target.parentNode.id)
   }
 
   render() {
