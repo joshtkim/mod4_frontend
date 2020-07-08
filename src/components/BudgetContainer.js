@@ -15,6 +15,7 @@ const BudgetContainer = (props) => {
           return <Budget 
           key={budget.id} 
           budget={budget}
+          budgetExpenses={budget.expenses}
         />
         })}
     </div>

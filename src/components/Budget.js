@@ -27,13 +27,23 @@ class Budget extends React.Component {
     })
   }
 
+  handleBudgetChange = () => {
+    let total = 0
+    total = this.props.budgetExpenses.reduce(
+      (prevValue, currentValue) => prevValue + currentValue.amount,0);
+
+    let budgetRemaining = this.props.budget.amount - total 
+    return budgetRemaining
+  }
+
+
 
   render() {
-    console.log(this.props.budget)
+    console.log(this.handleBudgetChange())
     return (
       <div>
         <h4>{this.props.budget.category}</h4>
-        <h4>{this.props.budget.amount}</h4>
+    <h4>{this.props.budget.amount} | {this.handleBudgetChange()}</h4>
           <ExpenseForm 
           addNewExpense={this.addNewExpense}
           budgetKey={this.props.budget.id}
@@ -54,26 +64,3 @@ class Budget extends React.Component {
 export default Budget;
 
 
-   /* <select>
-            <option value="Transportation">
-              Transportation
-            </option>
-            <option value="Lodging">
-              Lodging
-            </option>
-            <option value="Groceries">
-              Groceries
-            </option>
-            <option value="Clothing">
-              Clothing
-            </option>
-            <option value="Utility">
-              Utility
-            </option>
-            <option value="Travel">
-              Travel
-            </option>
-            <option value="Etc">
-              Etc
-            </option>
-          </select>  */
