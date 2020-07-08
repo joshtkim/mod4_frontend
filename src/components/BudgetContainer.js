@@ -16,6 +16,7 @@ const BudgetContainer = (props) => {
           key={budget.id} 
           budget={budget}
           budgetExpenses={budget.expenses}
+          removeBudget={props.removeBudget}
         />
         })}
     </div>
