@@ -31,38 +31,44 @@ class Budget extends React.Component {
     })
 
     this.handleBudgetChange()
+
+    this.props.budget.expenses.push(newExpense)
   }
 
 
   
   handleBudgetChange() {
     let total = 0
-    total = this.props.budgetExpenses.reduce(
+    total = this.state.expense.reduce(
       (prevValue, currentValue) => prevValue + currentValue.amount, 0);
 
     let budgetRemaining = this.props.budget.amount - total 
-      console.log(total)
-
+ 
     this.setState({
       remainingBudget: budgetRemaining
     })
+
   }
 
-  // maintainBudgetChange = () => {
-  //   this.state.expense.filter (expense=> {
-  //     return this.props.budget.id === expense.budget_id
-  // }
 
   removeExp = deletedExp => {
     console.log(deletedExp)
+    console.log(this.state.expense)
     let newArray = this.state.expense.filter(expense => {
-      return expense.id !== deletedExp
+    return expense.id === deletedExp
+  
     })
+    console.log(newArray)
 
     this.setState({
       expense: newArray
     })
+    console.log(this.state.expense)
+
+    this.handleBudgetChange()
+
   }
+
 
   handleEdit = (e) => {
 
@@ -80,7 +86,7 @@ class Budget extends React.Component {
 
 
   render() {
-    console.log(this.handleBudgetChange)
+    console.log(this.props.budget)
     return (
       <div>
         <h2>{this.props.budget.category}</h2>
