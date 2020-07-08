@@ -4,6 +4,7 @@ import NavBar from './components/NavBar';
 import Login from './components/Login';
 import BudgetContainer from './components/BudgetContainer';
 import Profile from './components/Profile'
+import "./App.css";
 
 
 class App extends React.Component {
@@ -11,7 +12,6 @@ class App extends React.Component {
   state ={
     budget: []
   }
-
 
   renderLogin = (routerProps) => {
     return <Login />

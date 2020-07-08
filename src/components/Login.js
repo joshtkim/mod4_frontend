@@ -31,7 +31,7 @@ handleSubmit = e => {
   render() {
     console.log(this.state)
     return (
-      <div>
+      <div className="login">
         <h1>Login Page</h1>
         <form onSubmit={this.handleSubmit}>
           <input placeholder="Username" name="username" type="text" value={this.state.username} onChange={this.handleChange}/>

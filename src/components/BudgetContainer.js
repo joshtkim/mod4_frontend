@@ -5,7 +5,6 @@ import BudgetForm from './BudgetForm'
 
 const BudgetContainer = (props) => {
 
-
   return (
     <div>
         <h1>Budget Container</h1>

@@ -30,8 +30,6 @@ class Budget extends React.Component {
 
   render() {
     console.log(this.props.budget)
-    // let expenseKey = Object.keys(this.state.expense)[0] || null
-    // let budgetId = this.props.budget.filter(budget => budget.id === expenseKey)[0]
     return (
       <div>
         <h4>{this.props.budget.category}</h4>
@@ -41,16 +39,10 @@ class Budget extends React.Component {
           budgetKey={this.props.budget.id}
           />
             <Expense
-            expense={this.state.expense}
+            expense={this.state.expense.filter (expense=> {
+              return this.props.budget.id === expense.budget_id
+            })}
             />
-          {/* {this.state.expense[budgetId].map((expense, i) => {
-            return <div key={i}>
-              <Expense
-              key={expense.id}
-              expense={expense}
-              />
-            </div>
-          })} */}
       </div>
     );
   }
