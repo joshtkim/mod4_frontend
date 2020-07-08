@@ -27,7 +27,7 @@ class ExpenseForm extends React.Component {
         description: this.state.description,
         amount: this.state.amount,
         date: this.state.date, 
-        budget_id: this.props.budgetKey
+        budget_id: this.props.budget.id
       })
     })
     .then(r => r.json())

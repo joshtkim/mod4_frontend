@@ -1,14 +1,12 @@
 import React from 'react';
 import Expense from './Expense';
 import ExpenseForm from './ExpenseForm'
-
 class Budget extends React.Component {
 
   state={
     expense: this.props.budgetExpenses,
     remainingBudget: 0
   }
-
 
   componentDidMount (){
     fetch("http://localhost:3000/expenses")
@@ -20,59 +18,47 @@ class Budget extends React.Component {
     })
     this.handleBudgetChange()
   }
-
-
-
   addNewExpense = newExpense => {
     let newArray = [...this.state.expense, newExpense]
-
     this.setState({
       expense: newArray,
     })
-
     this.handleBudgetChange()
-
     this.props.budget.expenses.push(newExpense)
   }
 
+  removeExp = deletedExp => {
+    console.log(deletedExp)
+    let updatedArray = this.state.expense.map(expense => {
+      if(expense.id !== deletedExp) {
+        return expense
+      }
+    })
 
-  
-  handleBudgetChange() {
+
+    this.setState({
+      expense: updatedArray
+    })
+
+    console.log(updatedArray)
+
+
+  }
+
+  handleBudgetChange = () => {
     let total = 0
     total = this.state.expense.reduce(
       (prevValue, currentValue) => prevValue + currentValue.amount, 0);
-
     let budgetRemaining = this.props.budget.amount - total 
- 
+
     this.setState({
       remainingBudget: budgetRemaining
     })
-
   }
-
-
-  removeExp = deletedExp => {
-    console.log(deletedExp)
-    console.log(this.state.expense)
-    let newArray = this.state.expense.filter(expense => {
-    return expense.id === deletedExp
   
-    })
-    console.log(newArray)
-
-    this.setState({
-      expense: newArray
-    })
-    console.log(this.state.expense)
-
-    this.handleBudgetChange()
-
-  }
-
-
   handleEdit = (e) => {
-
   }
+
 
   handleDelete = (e) => {
     fetch(`http://localhost:3000/budgets/${e.target.id}`, {
@@ -84,8 +70,9 @@ class Budget extends React.Component {
     })
   }
 
-
+  
   render() {
+    console.log(this.state.expense)
     console.log(this.props.budget)
     return (
       <div>
@@ -95,8 +82,7 @@ class Budget extends React.Component {
         <button id={this.props.budget.id} onClick={this.handleDelete}>Delete</button>
           <ExpenseForm 
           addNewExpense={this.addNewExpense}
-          budgetKey={this.props.budget.id}
-          budgetExpenses={this.props}
+          budget={this.props.budget}
           />
           <Expense
           removeExp={this.removeExp}
@@ -107,11 +93,5 @@ class Budget extends React.Component {
       </div>
     );
   }
-
-
-
 };
-
 export default Budget;
-
-
