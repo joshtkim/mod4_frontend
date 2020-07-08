@@ -4,15 +4,24 @@ import BudgetForm from './BudgetForm'
 
 
 const BudgetContainer = (props) => {
+
+
   return (
     <div>
         <h1>Budget Container</h1>
-        <BudgetForm />
+        <BudgetForm 
+        addNewBudget={props.addNewBudget}
+        />
         {props.budgetArray.map(budget =>{
-          return <Budget key={budget.id} budget={budget}/>
+          return <Budget 
+          key={budget.id} 
+          budget={budget}
+        />
         })}
     </div>
   );
+
+
 };
 
 export default BudgetContainer;

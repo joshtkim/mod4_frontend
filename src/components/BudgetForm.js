@@ -24,9 +24,11 @@ class BudgetForm extends React.Component {
             },
             body: JSON.stringify(this.state)
             })
-            .then(response => response.json())
-            .then(array => console.log(array))
-        }
+        .then(response => response.json())
+        .then(newBudget => {
+            this.props.addNewBudget(newBudget)
+        })
+    }
 
 
 render(){

@@ -9,9 +9,9 @@ class Login extends React.Component {
 
   handleChange = e => {
     this.setState({
-        [e.target.name]: e.target.value
+      [e.target.name]: e.target.value
     })
-}
+  }
 
 handleSubmit = e => {
     e.preventDefault()
@@ -34,9 +34,9 @@ handleSubmit = e => {
       <div>
         <h1>Login Page</h1>
         <form onSubmit={this.handleSubmit}>
-            <input placeholder="Username" name="username" type="text" value={this.state.username} onChange={this.handleChange}/>
-            <input placeholder="Password" name="password" type="password" value={this.state.password} onChange={this.handleChange}/>
-            <input type="submit"/>
+          <input placeholder="Username" name="username" type="text" value={this.state.username} onChange={this.handleChange}/>
+          <input placeholder="Password" name="password" type="password" value={this.state.password} onChange={this.handleChange}/>
+          <input type="submit"/>
         </form>
       </div>
     );

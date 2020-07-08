@@ -8,7 +8,7 @@ class Profile extends React.Component {
             <div>
                 <h4>Profile</h4>
             </div>
-          );
+        );
     }
 
 

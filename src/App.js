@@ -18,7 +18,10 @@ class App extends React.Component {
   }
 
   renderBudgetContainer = (routerProps) => {
-    return <BudgetContainer budgetArray={this.state.budget}/>
+    return <BudgetContainer 
+    budgetArray={this.state.budget}
+    addNewBudget={this.addNewBudget}
+    />
   }
 
   renderProfile = (routerProps) => {
@@ -27,17 +30,23 @@ class App extends React.Component {
 
   componentDidMount (){
     fetch("http://localhost:3000/budgets")
-        .then(response => response.json())
-        .then(budgetArray => {
-          this.setState({
-            budget: budgetArray
-          })
-        })
-      }
+    .then(response => response.json())
+    .then(budgetArray => {
+      this.setState({
+        budget: budgetArray
+      })
+    })
+  }
+
+  addNewBudget = newBudget => {
+    let copyOfBudget = [...this.state.budget, newBudget]
+    this.setState({
+      budget: copyOfBudget
+    })
+  }
 
 
   render() {
-    console.log(this.state.budget)
     return (
       <Router>
         <div className="app">
