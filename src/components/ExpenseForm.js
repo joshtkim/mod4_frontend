@@ -9,12 +9,6 @@ class ExpenseForm extends React.Component {
     budget_id: ''
   }
 
-  // componentDidMount = ()=>{
-  //   this.setState({
-  //     budget_id: this.props.budgetKey
-  //   })
-  // }
-
   handleChange = e => {
     this.setState({
       [e.target.name]: e.target.value

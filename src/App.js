@@ -26,6 +26,7 @@ class App extends React.Component {
     return <BudgetContainer 
     budgetArray={this.state.budget}
     addNewBudget={this.addNewBudget}
+    removeBudget={this.removeBudget}
     />
   }
 
@@ -47,6 +48,16 @@ class App extends React.Component {
     let copyOfBudget = [...this.state.budget, newBudget]
     this.setState({
       budget: copyOfBudget
+    })
+  }
+
+  removeBudget = deletedBudget => {
+    let newArray = this.state.budget.filter(budget => {
+      return budget.id !== deletedBudget
+    })
+
+    this.setState({
+      budget: newArray
     })
   }
 
