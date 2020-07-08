@@ -5,7 +5,8 @@ import ExpenseForm from './ExpenseForm'
 class Budget extends React.Component {
 
   state={
-    expense: []
+    expense: [],
+    remainingBudget: ''
   }
 
 
@@ -27,15 +28,20 @@ class Budget extends React.Component {
     })
   }
 
-  handleBudgetChange = () => {
+  handleBudgetChange() {
     let total = 0
     total = this.props.budgetExpenses.reduce(
       (prevValue, currentValue) => prevValue + currentValue.amount,0);
 
     let budgetRemaining = this.props.budget.amount - total 
-    return budgetRemaining
-  }
+      return budgetRemaining
+  };
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.remainingBudget !== this.state.remainingBudget) {
+      console.log('pokemons state has changed.')
+    }
+  }
 
 
   render() {
@@ -47,6 +53,7 @@ class Budget extends React.Component {
           <ExpenseForm 
           addNewExpense={this.addNewExpense}
           budgetKey={this.props.budget.id}
+          budgetExpenses={this.props}
           />
             <Expense
             expense={this.state.expense.filter (expense=> {
