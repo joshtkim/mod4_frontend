@@ -4,24 +4,16 @@ import './NavBar.css'
 
 const NavBar = () => {
 
+  const style = {
+    fontFamily: 'Lato'
+  }
 
   return (
     <div className="navbar">
-      <li className="navbar-link"><NavLink to="/" activeStyle={{
-        fontFamily: 'Lato',
-        fontWeight: 'light',
-        color: 'white'
-      }}>Login</NavLink></li>
-      <li className="navbar-link"><NavLink to="/profile" activeStyle={{
-        fontFamily: 'Lato',
-        fontWeight: 'light',
-        color: 'white'
-      }} >Profile</NavLink></li>
-      <li className="navbar-link"><NavLink to="/budget" activeStyle={{
-        fontFamily: 'Lato',
-        fontWeight: 'light',
-        color: 'white'
-      }}>Budget Tracker</NavLink></li>
+      <li className="navbar-link"><NavLink to="/home">Home</NavLink></li>
+      <li className="navbar-link"><NavLink to="/login">Login</NavLink></li>
+      <li className="navbar-link"><NavLink to="/profile" >Profile</NavLink></li>
+      <li className="navbar-link"><NavLink to="/budget" >Budget Tracker</NavLink></li>
     </div>
   );
 };

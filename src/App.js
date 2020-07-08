@@ -4,6 +4,7 @@ import NavBar from './components/NavBar';
 import Login from './components/Login';
 import BudgetContainer from './components/BudgetContainer';
 import Profile from './components/Profile'
+import Home from './components/Home'
 import "./App.css";
 
 
@@ -11,6 +12,10 @@ class App extends React.Component {
 
   state ={
     budget: []
+  }
+
+  renderHome = (routerProps) => {
+    return <Home />
   }
 
   renderLogin = (routerProps) => {
@@ -51,7 +56,8 @@ class App extends React.Component {
       <Router>
         <div className="app">
           <NavBar />
-          <Route exact path="/" render={this.renderLogin} />
+          <Route exact path="/home" render={this.renderHome}/>
+          <Route exact path="/login" render={this.renderLogin} />
           <Route exact path="/profile" render={this.renderProfile} />
           <Route exact path="/budget" render={this.renderBudgetContainer} />
         </div>
