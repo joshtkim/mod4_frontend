@@ -11,7 +11,8 @@ import "./App.css";
 class App extends React.Component {
 
   state ={
-    budget: []
+    budget: [],
+    username: ''
   }
 
   renderHome = (routerProps) => {
@@ -19,7 +20,9 @@ class App extends React.Component {
   }
 
   renderLogin = (routerProps) => {
-    return <Login />
+    return <Login 
+    sendUserName={this.sendUserName}
+    />
   }
 
   renderBudgetContainer = (routerProps) => {
@@ -31,7 +34,10 @@ class App extends React.Component {
   }
 
   renderProfile = (routerProps) => {
-    return <Profile />
+    return <Profile 
+    username={this.state.username}
+    budgetArray={this.state.budget}
+    />
   }
 
   componentDidMount (){
@@ -61,6 +67,11 @@ class App extends React.Component {
     })
   }
 
+  sendUserName = (username) => {
+    this.setState({
+      username: username
+    })
+  }
 
   render() {
     return (

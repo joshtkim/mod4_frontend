@@ -13,6 +13,10 @@ class Login extends React.Component {
     })
   }
 
+  sendUpName = e => {
+    this.props.sendUserName(this.state.username)
+  }
+
 handleSubmit = e => {
     e.preventDefault()
 
@@ -24,12 +28,14 @@ handleSubmit = e => {
         body: JSON.stringify(this.state)
     })
 
+    this.sendUpName()
+
     window.location='http://localhost:3001/profile'
 }
 
 
   render() {
-    console.log(this.state)
+    console.log(this.sendUpName)
     return (
       <div className="login">
         <h1>Login Page</h1>
