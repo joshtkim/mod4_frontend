@@ -7,7 +7,7 @@ class Expense extends React.Component {
       method:"DELETE",
     })
     e.target.parentNode.remove()
-    this.props.removeExp(e.target.id)
+    this.props.removeExp(e.target.parentNode.id)
   }
 
   render() {

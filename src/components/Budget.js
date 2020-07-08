@@ -5,7 +5,7 @@ import ExpenseForm from './ExpenseForm'
 class Budget extends React.Component {
 
   state={
-    expense: [],
+    expense: this.props.budgetExpenses,
     remainingBudget: 0
   }
 
@@ -29,19 +29,23 @@ class Budget extends React.Component {
     })
 
     this.handleBudgetChange()
+
+    this.props.budget.expenses.push(newExpense)
   }
 
   handleBudgetChange = () => {
     let total = 0
-    total = this.props.budgetExpenses.reduce(
+    total = this.state.expense.reduce(
       (prevValue, currentValue) => prevValue + currentValue.amount, 0);
 
     let budgetRemaining = this.props.budget.amount - total 
       console.log(total)
+      console.log(this.state.expense)
 
     this.setState({
       remainingBudget: budgetRemaining
     })
+
   }
 
   // maintainBudgetChange = () => {
@@ -52,11 +56,21 @@ class Budget extends React.Component {
   removeExp = deletedExp => {
     console.log(deletedExp)
     let newArray = this.state.expense.filter(expense => {
-      return expense.id !== deletedExp
+      if(expense.id !== deletedExp.id) {
+        return expense
+      }
     })
 
     this.setState({
       expense: newArray
+    })
+    console.log(newArray)
+
+    this.handleBudgetChange()
+    this.props.budget.expenses.filter(expense => {
+      if(expense.id === deletedExp.id){
+        this.state.expense.remove(expense)
+      }
     })
   }
 
@@ -76,7 +90,7 @@ class Budget extends React.Component {
 
 
   render() {
-    console.log(this.handleBudgetChange)
+    console.log(this.props.budget)
     return (
       <div>
         <h2>{this.props.budget.category}</h2>
@@ -85,7 +99,7 @@ class Budget extends React.Component {
         <button id={this.props.budget.id} onClick={this.handleDelete}>Delete</button>
           <ExpenseForm 
           addNewExpense={this.addNewExpense}
-          budgetKey={this.props.budget.id}
+          budget={this.props.budget}
           />
           <Expense
           removeExp={this.removeExp}
