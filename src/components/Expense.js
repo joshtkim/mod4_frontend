@@ -41,7 +41,7 @@ class Expense extends React.Component {
       method:"DELETE",
     })
     e.target.parentNode.remove()
-    this.props.removeExp(e.target.id)
+    this.props.removeExp(e.target.parentNode)
   }
   
   handleEdit = (e) => {
@@ -49,7 +49,7 @@ class Expense extends React.Component {
 
   render() {
     let expense = this.props.expense.map(expenseObj =>{
-      return <div key={expenseObj.id} id={this.props.budget.id}>
+      return <div key={expenseObj.id} id={this.props.budget.id} data-expAmount={expenseObj.amount} data-budgetAmount={this.props.budget.amount}>
       <h4>{expenseObj.description}</h4>
       <h4>{expenseObj.amount}</h4>
       <h4>{expenseObj.date}</h4>
@@ -57,7 +57,6 @@ class Expense extends React.Component {
       <button id={expenseObj.id} onClick={this.handleDelete}>Delete</button>
       </div>
     })
-    console.log(this.props.expense)
     return (
       <div>
         <div>

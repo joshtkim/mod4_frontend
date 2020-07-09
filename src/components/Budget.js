@@ -6,7 +6,8 @@ class Budget extends React.Component {
 
   state={
     expense: this.props.budgetExpenses,
-    remainingBudget: 0
+    remainingBudget: 0,
+    individualBudget: this.props.budget.amount
   }
 
   componentDidMount (){
@@ -14,7 +15,7 @@ class Budget extends React.Component {
     .then(response => response.json())
     .then(expenseArray => {
       this.setState({
-        expense: expenseArray
+        expense: this.props.budgetExpenses
       })
     })
     this.handleBudgetChange()
@@ -27,11 +28,13 @@ class Budget extends React.Component {
     })
     this.handleBudgetChange()
     this.props.budget.expenses.push(newExpense)
+    console.log(this.state.remainingBudget)
   }
 
   removeExp = deletedExp => {
     console.log(deletedExp)
     let updatedArray = this.state.expense.map(expense => {
+   
       if(expense.id !== deletedExp) {
         return expense
       }
@@ -40,7 +43,12 @@ class Budget extends React.Component {
       expense: updatedArray
     })
 
-    this.handleBudgetChange()
+    let budgetRemaining = this.state.remainingBudget + parseInt(deletedExp.dataset.expamount)
+    console.log(budgetRemaining)
+
+    this.setState({
+      remainingBudget: budgetRemaining
+    })
   }
 
   handleBudgetChange = () => {
@@ -62,9 +70,9 @@ class Budget extends React.Component {
       e.target.parentNode.remove()
       this.props.removeBudget(e.target.id)
   }
+
+
   render() {
-    // console.log(this.state.expense)
-    // console.log(this.props.budget)
     return (
       <div>
         <h2>{this.props.budget.category}</h2>
