@@ -35,11 +35,11 @@ class BudgetForm extends React.Component {
 render(){
     return (
         <div className="budgetform">
-           <h4>Create A New Budget:</h4>
+           <h4 classname="header">Create A New Budget:   </h4>
             <form onSubmit={this.handleSubmit}>
-            <input name="category" type="text" placeholder="Budget Category" value={this.state.category} onChange={this.handleChange}></input>
-            <input placeholder="Budget Total" name="amount" type="number" value={this.state.amount} onChange={this.handleChange}/>
-            <input type="submit"/>
+            <input className= "text" name="category" type="text" placeholder="Enter Budget Category" value={this.state.category} onChange={this.handleChange}></input>
+            <input className= "text" placeholder="Enter Budget Total" name="amount" type="number" value={this.state.amount} onChange={this.handleChange}/>
+            <input className= "text" type="submit"/>
           </form>
         </div>
         )}}
