@@ -63,11 +63,8 @@ class Budget extends React.Component {
       this.props.removeBudget(e.target.id)
   }
   render() {
-<<<<<<< HEAD
-=======
     // console.log(this.state.expense)
     // console.log(this.props.budget)
->>>>>>> 91aa6958e4cec08f0c0503d2c9e0910fd7a185ce
     return (
       <div>
         <h2>{this.props.budget.category}</h2>
