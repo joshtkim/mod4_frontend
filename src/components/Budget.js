@@ -1,6 +1,7 @@
 import React from 'react';
 import Expense from './Expense';
-import ExpenseForm from './ExpenseForm'
+
+
 class Budget extends React.Component {
 
   state={
@@ -18,6 +19,7 @@ class Budget extends React.Component {
     })
     this.handleBudgetChange()
   }
+
   addNewExpense = newExpense => {
     let newArray = [...this.state.expense, newExpense]
     this.setState({
@@ -34,15 +36,11 @@ class Budget extends React.Component {
         return expense
       }
     })
-
-
     this.setState({
       expense: updatedArray
     })
 
-    console.log(updatedArray)
-
-
+    this.handleBudgetChange()
   }
 
   handleBudgetChange = () => {
@@ -56,36 +54,29 @@ class Budget extends React.Component {
     })
   }
   
-  handleEdit = (e) => {
-  }
-
 
   handleDelete = (e) => {
     fetch(`http://localhost:3000/budgets/${e.target.id}`, {
       method:"DELETE",
     })
-    .then(r => r.json())
-    .then(deletedBudget => {
-      this.props.removeBudget(deletedBudget)
-    })
+      e.target.parentNode.remove()
+      this.props.removeBudget(e.target.id)
   }
 
   
   render() {
-    console.log(this.state.expense)
-    console.log(this.props.budget)
+    // console.log(this.state.expense)
+    // console.log(this.props.budget)
     return (
       <div>
         <h2>{this.props.budget.category}</h2>
         <h2>${this.props.budget.amount} | ${this.state.remainingBudget}</h2>
         <button id={this.props.budget.id} onClick={this.handleEdit}>Edit</button>
         <button id={this.props.budget.id} onClick={this.handleDelete}>Delete</button>
-          <ExpenseForm 
-          addNewExpense={this.addNewExpense}
-          budget={this.props.budget}
-          />
           <Expense
           removeExp={this.removeExp}
+          addNewExpense={this.addNewExpense}
+          budget={this.props.budget}
           expense={this.state.expense.filter (expense=> {
             return this.props.budget.id === expense.budget_id
           })}
