@@ -1,13 +1,13 @@
 import React from 'react';
 import Budget from './Budget'
 import BudgetForm from './BudgetForm'
-
+import './budgetcontainer.css'
 
 const BudgetContainer = (props) => {
 
   return (
-    <div>
-        <h1>Budget Container</h1>
+    <div className="budgetContainer">
+        <h1 className="header">Budget Tracking</h1>
         <BudgetForm 
         addNewBudget={props.addNewBudget}
         />

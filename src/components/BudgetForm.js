@@ -1,4 +1,5 @@
 import React from 'react';
+import './budgetform.css'
 
 class BudgetForm extends React.Component {
 
@@ -33,8 +34,8 @@ class BudgetForm extends React.Component {
 
 render(){
     return (
-        <div>
-           <h4>Budget</h4>
+        <div className="budgetform">
+           <h4>Create A New Budget:</h4>
             <form onSubmit={this.handleSubmit}>
             <input name="category" type="text" placeholder="Budget Category" value={this.state.category} onChange={this.handleChange}></input>
             <input placeholder="Budget Total" name="amount" type="number" value={this.state.amount} onChange={this.handleChange}/>

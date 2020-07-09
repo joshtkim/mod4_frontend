@@ -1,0 +1,9 @@
+.budgetform {
+    display: flex;
+    border: 1px solid; 
+    background-color: palevioletred;
+    align-items: center;
+    padding: 50px;
+    flex-direction: row;
+    position: relative;
+}

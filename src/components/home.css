@@ -1,0 +1,16 @@
+.home {
+    font-size: 50px;
+    text-align: center;
+    padding-top: 10%;
+    color:darkblue;
+    font-family: 'Luckiest Guy', cursive;
+
+}
+
+.goal {
+    padding-top: 6%;
+    font-size: large;
+    transition: ease;
+
+
+}
