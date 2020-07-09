@@ -36,6 +36,7 @@ class ExpenseForm extends React.Component {
     })
   }
 
+
   render() {
     let {description, amount, date} = this.state
 
