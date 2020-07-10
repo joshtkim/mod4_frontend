@@ -1,5 +1,6 @@
 import React from 'react';
 import Expense from './Expense';
+import './budget.css'
 
 
 class Budget extends React.Component {

@@ -8,6 +8,11 @@
     box-shadow: 2px 1.5px 1px #888888;
   }
   
+  .welcome{
+    display: flex;
+    align-items: center;
+  }
+
   .navbar-link {
     display: flex;
     align-items: center;
