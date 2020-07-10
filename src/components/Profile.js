@@ -20,7 +20,6 @@ class Profile extends React.Component {
             <div className='main-container'>
                 <div className='welcome'>                
                     <h2>Welcome Eric</h2>
-                    <img className="image" src="https://ca.slack-edge.com/T02MD9XTF-U91CXSUN4-3bac0a7f6a08-512" width="200" height="200"></img>
                 </div>
                 <div className='budget-container'>
                     {budget}
