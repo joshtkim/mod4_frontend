@@ -18,7 +18,7 @@ class Profile extends React.Component {
         return (
             <div className='main-container'>
                 <div className='welcome'>                
-                    <h4>Welcome Eric</h4>
+                    <h2>Welcome Eric</h2>
                 </div>
                 <div className='budget-container'>
                     {budget}
