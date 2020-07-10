@@ -52,7 +52,7 @@ class Expense extends React.Component {
     let expense = this.props.expense.map(expenseObj =>{
       return <div className="input" key={expenseObj.id} id={this.props.budget.id} data-expAmount={expenseObj.amount} data-budgetAmount={this.props.budget.amount}>
       <h4>{expenseObj.description}</h4>
-      <h4>{expenseObj.amount}</h4>
+      <h4>${expenseObj.amount}</h4>
       <h4>{expenseObj.date}</h4>
       <button className="delete" id={expenseObj.id} onClick={this.handleDelete}>Delete</button>
       </div>

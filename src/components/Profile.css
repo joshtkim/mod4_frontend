@@ -42,3 +42,16 @@
     border-radius: 6px;
     color: white;
 }
+
+.progress max {
+    background-color: lightslategray;
+    width: 300px;
+    height: 20px;
+    border-radius: 2%;
+}
+
+.image {
+    display: block;
+    margin-right: 900px;
+    margin-top: 0px;
+}
