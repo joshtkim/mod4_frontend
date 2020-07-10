@@ -1,0 +1,35 @@
+.input {
+    background-color:rgb(102, 174, 219);
+    color: white;
+        border-radius: 4px;
+        box-sizing: content-box;
+        margin: 8px 20px;
+        padding: 3px 18px;
+        border: ivory;
+        font-family: 'Sigmar One', cursive;
+        box-shadow: 2px 1.5px 1px #888888;
+}
+
+.textbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    flex-direction: row;
+    position: relative;
+    border-radius:6px;
+    margin: 30px 6px;
+    box-shadow: 1px 5px 5px 8px grey;
+}
+
+.text {
+
+        border-radius: 4px;
+        box-sizing: content-box;
+        margin: 8px 20px;
+        padding: 3px 18px;
+        border: ivory;
+        font-family: 'Sigmar One', cursive;
+        box-shadow: 2px 1.5px 1px #888888;
+    
+}

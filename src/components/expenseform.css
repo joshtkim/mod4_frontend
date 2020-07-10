@@ -1,5 +1,6 @@
-.budgetform {
+.expenseform {
     display: flex;
+    display: inline-block;
     border: 10px gainsboro inset; 
     background-color: rgb(235, 245, 245);
     align-items: center;

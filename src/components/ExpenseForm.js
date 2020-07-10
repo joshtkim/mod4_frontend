@@ -1,4 +1,5 @@
 import React from 'react';
+import './expenseform.css'
 
 class ExpenseForm extends React.Component {
 
@@ -41,13 +42,13 @@ class ExpenseForm extends React.Component {
     let {description, amount, date} = this.state
 
     return (
-      <div>
+      <div className="expenseform">
         <h4>Expense</h4>
         <form onSubmit={this.handleSubmit}>
-          <input onChange={this.handleChange} placeholder="Expense" type="text" name="description" value={description}/>
-          $ <input onChange={this.handleChange} placeholder="Amount Spent" type="number" name="amount" value={amount}/>
-          <input onChange={this.handleChange} type="date" name="date" value={date}/>
-          <input type="submit"/>
+          <input className="button" onChange={this.handleChange} placeholder="Expense" type="text" name="description" value={description}/>
+          $ <input className="button" onChange={this.handleChange} placeholder="Amount Spent" type="number" name="amount" value={amount}/>
+          <input className="button" onChange={this.handleChange} type="date" name="date" value={date}/>
+          <input className="button" type="submit"/>
         </form>
       </div>
     )

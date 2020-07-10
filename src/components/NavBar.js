@@ -4,10 +4,6 @@ import './NavBar.css'
 
 const NavBar = () => {
 
-  const style = {
-    fontFamily: 'Lato'
-  }
-
   return (
     <div className="navbar">
       <li className="navbar-link"><NavLink to="/home">Home</NavLink></li>
