@@ -67,8 +67,12 @@ class Budget extends React.Component {
     fetch(`http://localhost:3000/budgets/${e.target.id}`, {
       method:"DELETE",
     })
-      e.target.parentNode.remove()
-      this.props.removeBudget(e.target.id)
+    .then(r => r.json())
+    .then(deletedBudget => {
+      this.props.removeBudget(this.props.budget.id)
+    })
+      // e.target.parentNode.remove()
+      // this.props.removeBudget(e.target.id)
   }
 
 
