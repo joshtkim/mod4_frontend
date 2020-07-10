@@ -4,10 +4,6 @@ import './NavBar.css'
 
 const NavBar = () => {
 
-  const style = {
-    fontFamily: 'Lato'
-  }
-
   return (
     <div className="navbar">
       <div className='welcome'>

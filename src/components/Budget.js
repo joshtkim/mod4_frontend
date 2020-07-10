@@ -33,7 +33,6 @@ class Budget extends React.Component {
   }
 
   removeExp = deletedExp => {
-    console.log(deletedExp)
     let updatedArray = this.state.expense.map(expense => {
    
       if(expense.id !== deletedExp) {
@@ -75,11 +74,11 @@ class Budget extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>{this.props.budget.category}</h2>
-        <h2>${this.props.budget.amount} | ${this.state.remainingBudget}</h2>
-        <button id={this.props.budget.id} onClick={this.handleEdit}>Edit</button>
-        <button id={this.props.budget.id} onClick={this.handleDelete}>Delete</button>
+      <div className= "budget">
+        <h2 className="header">Budget Name: {this.props.budget.category}</h2>
+        <h4 className="headertwo">Total Budge Available: ${this.props.budget.amount}</h4>
+        <h4> Budget Amount Remaining: ${this.state.remainingBudget}</h4>
+        <button className="text" id={this.props.budget.id} onClick={this.handleDelete}>Delete</button>
           <Expense
           removeExp={this.removeExp}
           addNewExpense={this.addNewExpense}

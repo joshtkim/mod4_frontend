@@ -1,4 +1,5 @@
 import React from 'react';
+import './expense.css'
 
 class Expense extends React.Component {
   
@@ -49,23 +50,22 @@ class Expense extends React.Component {
 
   render() {
     let expense = this.props.expense.map(expenseObj =>{
-      return <div key={expenseObj.id} id={this.props.budget.id} data-expAmount={expenseObj.amount} data-budgetAmount={this.props.budget.amount}>
+      return <div className="input" key={expenseObj.id} id={this.props.budget.id} data-expAmount={expenseObj.amount} data-budgetAmount={this.props.budget.amount}>
       <h4>{expenseObj.description}</h4>
       <h4>{expenseObj.amount}</h4>
       <h4>{expenseObj.date}</h4>
-      <button id={expenseObj.id} onClick={this.handleEdit}>Edit</button>
-      <button id={expenseObj.id} onClick={this.handleDelete}>Delete</button>
+      <button className="delete" id={expenseObj.id} onClick={this.handleDelete}>Delete</button>
       </div>
     })
     return (
       <div>
-        <div>
-        <h4>Expense</h4>
+        <div className="textbox">
+        <h4>Create an expense for this budget </h4>
         <form onSubmit={this.handleSubmit}>
-          <input onChange={this.handleChange} value={this.state.description} placeholder="Expense" type="text" name="description"/>
-          $ <input onChange={this.handleChange} value={this.state.amount} placeholder="Amount Spent" type="number" name="amount"/>
-          <input onChange={this.handleChange} value={this.state.date} type="date" name="date"/>
-          <input type="submit"/>
+          <input className="text" onChange={this.handleChange} value={this.state.description} placeholder="Expense Name" type="text" name="description"/>
+          <input className="text" onChange={this.handleChange} value={this.state.amount} placeholder="Amount Spent" type="number" name="amount"/>
+          <input className="text" onChange={this.handleChange} value={this.state.date} type="date" name="date"/>
+          <input className="text" type="submit"/>
         </form>
         </div>
         {expense}
