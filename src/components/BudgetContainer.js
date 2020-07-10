@@ -11,14 +11,16 @@ const BudgetContainer = (props) => {
         <BudgetForm 
         addNewBudget={props.addNewBudget}
         />
-        {props.budgetArray.map(budget =>{
+        <div className="budgetCard">
+          {props.budgetArray.map(budget =>{
           return <Budget 
           key={budget.id} 
           budget={budget}
           budgetExpenses={budget.expenses}
           removeBudget={props.removeBudget}
-        />
-        })}
+          />
+          })}
+        </div> 
     </div>
   );
 

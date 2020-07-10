@@ -8,3 +8,10 @@
     font-size: xxx-large;
     text-align: left;
 }
+
+.budgetCard{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
