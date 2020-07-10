@@ -1,9 +1,21 @@
 .budgetform {
     display: flex;
-    border: 1px solid; 
-    background-color: palevioletred;
+    border: 5px gainsboro inset; 
+    background-color: rgb(221, 243, 243);
     align-items: center;
-    padding: 50px;
+    justify-content: center;
+    padding: 60px;
     flex-direction: row;
     position: relative;
+    border-radius:1em;
+}
+
+.text {
+    border-radius: 4px;
+    box-sizing: content-box;
+    margin: 8px 20px;
+    padding: 3px 18px;
+    border: ivory;
+    font-family: 'Sigmar One', cursive;
+    box-shadow: 2px 1.5px 1px #888888;
 }
