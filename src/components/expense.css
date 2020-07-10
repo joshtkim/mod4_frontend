@@ -1,6 +1,6 @@
 .input {
-    background-color:rgb(102, 174, 219);
-    color: white;
+        background-color:rgb(102, 174, 219);
+        color: white;
         border-radius: 4px;
         box-sizing: content-box;
         margin: 8px 20px;
@@ -32,4 +32,14 @@
         font-family: 'Sigmar One', cursive;
         box-shadow: 2px 1.5px 1px #888888;
     
+}
+
+.delete {
+        border-radius: 4px;
+        box-sizing: content-box;
+        margin: 8px 20px;
+        padding: 3px 18px;
+        border: ivory;
+        font-family: 'Sigmar One', cursive;
+        box-shadow: 2px 1.5px 1px #888888;
 }

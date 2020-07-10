@@ -1,4 +1,5 @@
 import React from 'react';
+import './login.css'
 
 class Login extends React.Component {
 
@@ -40,9 +41,9 @@ handleSubmit = e => {
       <div className="login">
         <h1>Login Page</h1>
         <form onSubmit={this.handleSubmit}>
-          <input placeholder="Username" name="username" type="text" value={this.state.username} onChange={this.handleChange}/>
-          <input placeholder="Password" name="password" type="password" value={this.state.password} onChange={this.handleChange}/>
-          <input type="submit"/>
+          <input className="text" placeholder="Username" name="username" type="text" value={this.state.username} onChange={this.handleChange}/>
+          <input className="text" placeholder="Password" name="password" type="password" value={this.state.password} onChange={this.handleChange}/>
+          <input className="text" type="submit"/>
         </form>
       </div>
     );

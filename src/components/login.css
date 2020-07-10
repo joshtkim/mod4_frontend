@@ -1,0 +1,22 @@
+.login {
+    display: flex;
+    background-color: rgb(235, 245, 245);
+    align-items: center;
+    justify-content: center;
+    padding: 60px;
+    flex-direction: row;
+    position: relative;
+    border-radius:6px;
+    margin: 50px 20px;
+    box-shadow: 7px 7px 9px grey;
+}
+
+.text {
+    border-radius: 4px;
+    box-sizing: content-box;
+    margin: 8px 20px;
+    padding: 3px 18px;
+    border: ivory;
+    font-family: 'Sigmar One', cursive;
+    box-shadow: 2px 1.5px 1px #888888;
+}
