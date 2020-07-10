@@ -50,6 +50,14 @@ class App extends React.Component {
     })
   }
 
+  reRenderBudget = () => {
+    let updatedArray = [...this.state.budget]
+
+    this.setState({
+      budget: updatedArray
+    })
+  }
+
   addNewBudget = newBudget => {
     let copyOfBudget = [...this.state.budget, newBudget]
     this.setState({
