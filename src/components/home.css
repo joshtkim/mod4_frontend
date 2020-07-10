@@ -21,6 +21,42 @@
     -o-animation: fadeIn ease 5s;
     -ms-animation: fadeIn ease 5s;
 }
+
+.goal2 {
+    margin-right: 100px;
+    margin-left: 100px;
+    padding-top: 6%;
+    font-size: large;
+    transition: ease;
+    justify-items: center;
+    color:rgb(55, 55, 133);
+    animation: fadeIn ease 10s;
+    -webkit-animation: fadeIn ease 10s;
+    -moz-animation: fadeIn ease 10s;
+    -o-animation: fadeIn ease 10s;
+    -ms-animation: fadeIn ease 10s;
+}
+
+.goal3 {
+    margin-right: 100px;
+    margin-left: 100px;
+    padding-top: 2%;
+    font-size: large;
+    transition: ease;
+    justify-items: center;
+    color:rgb(55, 55, 133);
+    animation: fadeIn ease 15s;
+    -webkit-animation: fadeIn ease 15s;
+    -moz-animation: fadeIn ease 15s;
+    -o-animation: fadeIn ease 15s;
+    -ms-animation: fadeIn ease 15s;
+}
+
+a {
+    color: cyan;
+}
+
+
 @keyframes fadeIn {
   0% {
     opacity:0;
